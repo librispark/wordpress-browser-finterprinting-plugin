@@ -114,5 +114,4 @@ The WordPress plugin includes a goldfingerprinting.php file that is very brief a
 
 Our JavaScript toolkit requires a NodeJS JavaScript file for interfacing with the Mongo database. To address this need, our NodeJS implementation is contained in the backend.js file in the General Application directory. We have also provided copies of backend.js and fingerprint_toolkit.js files ending with “_master.js” that should only be used when running controlled experiments, as they present security complications; they provide browser-side capability to view or clear database contents, and therefore should only be used when the potential users are all confirmed to be trustworthy (ie. the researchers/developers themselves). 
 
-Class project credits to (below), ported from svn repository.
-David Banks, Evan Fischell, Jeremy Feldman, Joseph Brosnihan, Koji Lopez, Mitchell Tracy, Richard Lou
+Class project credits to: David Banks, Evan Fischell, Jeremy Feldman, Joseph Brosnihan, Koji Lopez, Mitchell Tracy, Richard Lou.
