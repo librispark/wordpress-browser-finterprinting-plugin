@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fingerprint Test</title>
+        <style>
+            #dbquery {
+                width: 500px;
+            }
+            .response {
+                max-width: 1000px;
+            }
+            
+            
+        </style>
+    </head>
+
+    <body>
+
+
+
+        <h1>Javascript Fingerprint Test</h1>
+
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>   
+        <script src="fingerprint_toolkit.js"></script>
+
+        <script>
+
+            function setResponse(response) {
+
+                document.getElementById("responseText").innerHTML = JSON.stringify(response, null, '\t');
+            }
+
+            function setUnique(response) {
+                document.getElementById("uniqueness").innerHTML = JSON.stringify(response, null, '\t');
+            }
+
+
+            function prettyPrint(response) {
+
+                var s = "Fingerprints:<br><br>";
+
+                for (var i = 0; i < response.length; i++) {
+                    
+                    for (var attr in response[i]){
+                        s += '<strong>'+ attr+'</strong>' + ":  "+(response[i])[attr]+'<br>';
+                    }
+                    s += "<br><br>";
+                }
+                document.getElementById("responseText").innerHTML = s;
+
+            }
+            
+            
+            function shortPrint(response) {
+
+                var s = "Fingerprints:<br><br>";
+
+                for (var i = 0; i < response.length; i++) {
+                    
+                    for (var attr in response[i]){
+                        if (attr === "username" || attr === "control" || attr === "md5")
+                            s += '<strong>'+ attr+'</strong>' + ":  "+(response[i])[attr]+'<br>';
+                    }
+                    s += "<br><br>";
+                }
+                document.getElementById("responseText").innerHTML = s;
+
+            }
+
+
+        </script>
+
+
+        <div>Username:</div>
+        <input type="text" id="username">
+        <input type="button" value="Store Fingerprint" onclick="storeFinger(setResponse, document.getElementById('username').value);">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Show Fingerprints in DB" onclick="showDB(prettyPrint);">
+        <input type="button" value="Show Preview of Fingerprints" onclick="showDB(shortPrint);">
+        <br>
+        <br>
+        <br>
+        <div>Query in JSON pairs. For example:</div>
+        <br>
+        <div>{"latitude": {"$gt": 30, "$lt": 40}, "longitude": {"$gt": -80, "$lt":-70}}</div>
+        <input type="button" value="Filter Fingerprints in DB" onclick="filterDB(prettyPrint, document.getElementById('dbquery').value)">
+        <input type="button" value="Shortened Filter of Fingerprints" onclick="filterDB(shortPrint, document.getElementById('dbquery').value)">
+        <input type="text" id="dbquery">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Get Uniqueness of DB" onclick="getUniqueness(setUnique);">
+        <div id="uniqueness"></div>
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Print Fingerprint" onclick="debug = true;
+                document.getElementById('responseText').innerHTML = JSON.stringify(getFingerJSON());
+                debug = false;">
+
+        <br>
+        <br>
+        
+
+        <br>
+        <br>
+        <br>
+        <input type="text" id="usernametimestamp">
+        <input type="button" value="Get timestamp average for user" onclick="getTimeAverage(setResponse, document.getElementById('usernametimestamp').value);">
+
+        <br>
+        <br>
+        <br>
+        <p id ="responseText" class="response"></p>
+
+
+
+        <p id="flash_fonts"></p>
+
+    </body>
+</html>

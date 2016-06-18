@@ -1,0 +1,3 @@
+This blurb page will run as long as the files and directories here are preserved. The "Our Tool" sub-page is an example application of our tool, and will only work if it is configured as an application server. It must be registered to communicate with a specified database server. 
+
+At the moment, the blurb page will be fully functional only when run on viable.cs.umd.edu or volition.cs.umd.edu, while communcating with the volition backend database.

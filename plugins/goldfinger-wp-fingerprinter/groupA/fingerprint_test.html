@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h1>Javascript Fingerprint Test</h1>
+
+
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+        <script type="text/javascript" src="font_detection.js"></script>
+        <script type="text/javascript" src="fingerprint_toolkit.js"></script>
+        
+        <script type="application/javascript" src="http://www.telize.com/geoip?callback=getgeoip"></script>
+        <!--   <script> updateFingerprint();</script>   -->
+        
+        
+        <input type="button" value="Store Fingerprint" onclick="storeFinger()">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Clear Fingerprints from DB" onclick="clearDB()">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Show Fingerprints in DB" onclick="showDB()">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Print Fingerprint" onclick="debug = true; document.getElementById(&quot;responseText&quot;).innerHTML = getFingerprintString(); debug = false;">
+        
+        <br>
+        <br>
+        <br>
+        <p id ="responseText"></p>
+        
+        <!-- element for SWF to load into -->
+        <div id="font-detect-swf"></div>
+        
+        <p id="flash_fonts"></p>
+        <!-- the following two sources along with everything in the 
+        font-detect-js-master folder come from the following repository:
+        https://github.com/gabriel/font-detect-js 
+        The LICENSE text file in that folder gives permission for use -->
+        
+        <script src="font-detect-js-master/javascripts/swfobject.js"></script>
+        <script src="font-detect-js-master/javascripts/font-detect.js"></script>  
+        
+        <script>
+          //getFonts();
+        </script>
+        
+
+
+
+    </body>
+</html>
